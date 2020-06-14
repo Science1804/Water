@@ -59,78 +59,7 @@ the gas.
 Discussion :
 
 We made an algorithm to find the critical constants from graph that includes finding Maxima
-and Minima of each curve
-The Following Code for CO2 (gas)
-Octave code –
-clear all
-clc
-R=8.314; \n
-a=0.396
-#b = 0.04286
-
-b=42.67/1000000;
-T=290;
-V=[0.00006:0.000001:0.001];
-M = [] ; Tm = [] ; Done = [] ; Done2 = [] ;
-i = 1 ;
-while(T&lt;340)
-P=(R*T./(V.-b))-(a./V.**2);
-M(i,:) = P ;
-Tm(i) = T ;
-plot(V,P)
-xlabel(&#39;Volume&#39; );
-ylabel(&#39;Pressure in Pa&#39;)
-hold on;
-T=T+1;
-i = i + 1 ;
-endwhile
-dim = size(M) ;
-rows = dim(1) ; columns = dim(2) ; # numbers of rows are our observations at each
-temperature.
-j = 1 ;
-l = 1 ;
-while (j &lt;= rows) &amp; (l &lt; columns)
-
-k = M(j,l) - M(j,l+1) ;
-if (k &gt; 0)
-l = l + 1 ;
-if (l &gt; columns)
-l = 1 ;
-j = j + 1 ;
-endif
-elseif (k &lt; 0)
-Done(j) = j ;
-l = 1 ;
-j = j + 1 ; jl = j ;
-endif
-endwhile
-printf(&#39;\n Minimum Exists for &#39;);
-Done
-l = columns; p = 1;
-
-printf(&#39;\n Maxima Exists for &#39;) ;
-Done2
-
-Output –
-
-The Following code for Neon
-b=17.10/1000000;
-T=41;
-V=[0.00006:0.000001:0.001];
-M = [] ; Tm = [] ; Done = [] ; Done2 = [] ;
-i = 1 ;
-while(T&lt;45)
-P=(R*T./(V.-b))-(a./V.**2);
-M(i,:) = P ;
-
-Tm(i) = T ;
-plot(V,P)
-xlabel(&#39;Volume&#39; );
-ylabel(&#39;Pressure in Pa&#39;)
-hold on;
-T=T+0.1;
-i = i + 1 ;
-endwhile
+and Minima of each curve the Code is present in another File
 
 Conclusion :
 On Cross verification with the formula of critical Constants using a and b , we have
